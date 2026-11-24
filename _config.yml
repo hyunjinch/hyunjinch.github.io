@@ -20,9 +20,9 @@ resume_contact_email:           "hyunzzch@gmail.com"
 
 # Decide which sections to use
 # Enable a section once its portfolio content is ready.
-resume_section_experience:      false
-resume_section_education:       false
-resume_section_projects:        false
+resume_section_experience:      true
+resume_section_education:       true
+resume_section_projects:        true
 resume_section_skills:          false
 resume_section_recognition:     false
 resume_section_links:           false
