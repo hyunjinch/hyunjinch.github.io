@@ -12,10 +12,14 @@ sass:
 # Resume settings
 resume_avatar:                  "false"
 resume_name:                    "최현진"
-resume_title:                   "관심 분야"
-resume_header_intro:            "<p>백엔드 · 프런트엔드 · 클라우드 · AI</p>"
+resume_title:                   "Interests"
+resume_interests:
+  - Backend
+  - Frontend
+  - Cloud
+  - AI
 
-# used for the contact button in _layouts/resume.html
+# Used for the email link in the profile.
 resume_contact_email:           "hyunzzch@gmail.com"
 
 # Decide which sections to use

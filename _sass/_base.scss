@@ -11,10 +11,12 @@ html {
 }
 
 body{
-  @include serif;
+  @include sans;
   color: $text_color;
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 1.65;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
 }
 
 .wrapper:before,

@@ -1,10 +1,18 @@
 <!-- and guess where these are defined? Yup, you guessed it: the _config.yml file -->
-{% if site.resume_social_links %}
-<ul class="icon-links no-print">
+{% if site.resume_social_links or site.resume_contact_email %}
+<ul class="icon-links no-print" aria-label="프로필 링크" role="list">
 
   <!-- GitHub link -->
   {% if site.resume_social_links.resume_github_url %}
-  <li class="icon-link-item"><a href="{{ site.resume_social_links.resume_github_url }}" class="icon-link" itemprop="sameAs" aria-label="GitHub 프로필">{% include icons/icon-github.html %}</a></li>
+  <li class="icon-link-item"><a href="{{ site.resume_social_links.resume_github_url }}" class="icon-link" itemprop="sameAs" aria-label="GitHub 프로필" title="GitHub 프로필">{% include icons/icon-github.html %}</a></li>
+  {% endif %}
+
+  {% if site.resume_contact_email %}
+  <li class="icon-link-item">
+    <a href="mailto:{{ site.resume_contact_email }}" class="icon-link" itemprop="email" aria-label="이메일 보내기" title="이메일 보내기">
+      <span class="icon-envelope" aria-hidden="true"></span>
+    </a>
+  </li>
   {% endif %}
 
   <!-- Twitter link -->

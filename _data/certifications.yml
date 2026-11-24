@@ -1,0 +1,11 @@
+- name: SQLD
+  issuer: 한국데이터산업진흥원
+  acquired: "2026-03-27"
+
+- name: ADsP
+  issuer: 한국데이터산업진흥원
+  acquired: "2026-11-20"
+
+- name: 한국사능력검정시험 1급
+  issuer: 국사편찬위원회
+  acquired: "2026-08-21"

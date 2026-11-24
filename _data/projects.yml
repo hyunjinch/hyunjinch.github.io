@@ -1,18 +1,20 @@
 # Projects
 - project: Yakssok
   status: 완료
-  url: https://github.com/ApptiveDev/Yakssok
+  github_url: https://github.com/ApptiveDev/Yakssok
   problem: 여러 사람이 모임 날짜를 잡을 때는 각자의 일정과 여러 후보 날짜를 함께 비교해야 합니다. Yakssok은 참석자들의 일정을 바탕으로 모임 날짜를 추천하고, 캘린더에서 개인 일정도 관리할 수 있게 합니다.
-  role: 프런트엔드 개발
+  role: Frontend
   technologies:
     - JavaScript
     - Python
 
 - project: SUBZIP
   status: 진행 중
-  url: https://github.com/hyunjinch/hub
+  github_url: https://github.com/hyunjinch/hub
+  demo_url: https://subzip.vercel.app/
   problem: 유료 구독을 함께 쓰는 사람들은 매달 정산 메시지를 보내고 송금해야 합니다. SUBZIP은 메시지 전송과 알림 수신, 송금 과정을 간소화하기 위해 개발 중인 서비스입니다.
-  role: Claude를 활용해 프런트엔드, 백엔드, 데이터베이스 개발 전반을 담당
+  role: Full Stack
+  role_note: Claude를 활용해 개발했습니다.
   technologies:
     - JavaScript
     - React (Vite)
