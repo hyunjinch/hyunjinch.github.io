@@ -2,7 +2,7 @@
 
 *A simple Jekyll + GitHub Pages powered resume template.*
 
-![img](images/screenshot.png)
+[최현진 포트폴리오](https://hyunjinch.github.io/)
 
 ## Docs
 
