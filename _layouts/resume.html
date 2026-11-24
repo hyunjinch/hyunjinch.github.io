@@ -15,13 +15,19 @@
 
       <header class="page-header">
 
-        <!-- You can turn off the avatar in _config.yml by setting to false -->
-        {% if site.resume_avatar == 'true' %}
-        <img src="images/avatar.jpg" alt="my photo" class="avatar no-print" itemprop="image">
-        {% endif %}
-
         <div class="profile-heading">
-          <h1 class="header-name" itemprop="name">{{ site.resume_name }}</h1>
+          <div class="profile-identity">
+            {% if site.resume_avatar == 'true' or site.resume_avatar == true %}
+            {% assign avatar_path = site.resume_avatar_path | default: '/images/avatar.jpg' %}
+            <img src="{{ avatar_path | relative_url | escape }}" alt="" width="64" height="64" class="avatar no-print" itemprop="image">
+            {% endif %}
+            <div>
+              <h1 class="header-name" itemprop="name">{{ site.resume_name | escape }}</h1>
+              {% if site.resume_headline and site.resume_headline != empty %}
+              <p class="profile-headline">{{ site.resume_headline | escape }}</p>
+              {% endif %}
+            </div>
+          </div>
           {% include icon-links.html %}
         </div>
 
@@ -107,9 +113,9 @@
         </header>
 
         {% for job in site.data.experience %}
-        <div class="resume-item" itemscope itemtype="http://schema.org/Organization">
+        <div class="resume-item" itemscope itemtype="http://schema.org/{% if job.program %}Course{% else %}Organization{% endif %}">
           <div class="timeline-heading">
-            <h3 class="resume-item-title" itemprop="name">{{ job.company }}</h3>
+            <h3 class="resume-item-title" itemprop="name">{{ job.program | default: job.company | escape }}</h3>
             {% if job.duration %}
             <span class="timeline-date">{{ job.duration }}</span>
             {% endif %}

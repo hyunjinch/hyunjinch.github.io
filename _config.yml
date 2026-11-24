@@ -1,6 +1,6 @@
 # Site settings
 title: "최현진 | 포트폴리오"
-description: "백엔드, 프런트엔드, 클라우드, AI에 관심 있는 최현진의 포트폴리오입니다."
+description: "최현진의 포트폴리오입니다."
 lang: ko
 
 # Build settings
@@ -10,8 +10,12 @@ sass:
   style: compressed
 
 # Resume settings
-resume_avatar:                  "false"
+# Add images/avatar.jpg before enabling the avatar, or set a different local path.
+resume_avatar:                  "true"
+# resume_avatar_path:            "/images/avatar.jpg"
+resume_headline:                "Computer science major"
 resume_name:                    "최현진"
+# resume_headline:               "Backend · Cloud"
 resume_title:                   "Interests"
 resume_interests:
   - Backend

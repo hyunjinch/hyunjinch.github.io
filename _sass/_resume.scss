@@ -16,17 +16,18 @@ $accent-tint: #e9f2ff;
 
   .avatar {
     display: block;
-    width: 95px;
-    max-width: 100%;
-    margin: 0 0 1rem;
+    flex: 0 0 auto;
+    width: 4rem;
+    height: 4rem;
     border-radius: 50%;
+    object-fit: cover;
   }
 
   .header-name {
     margin: 0;
-    font-size: clamp(2.25rem, 6vw, 3rem);
-    font-weight: 760;
-    letter-spacing: -.055em;
+    font-size: clamp(1.625rem, 4.5vw, 2.05rem);
+    font-weight: 720;
+    letter-spacing: -.04em;
     line-height: 1.15;
   }
 
@@ -44,6 +45,20 @@ $accent-tint: #e9f2ff;
 }
 
 .profile-heading { row-gap: .8rem; }
+
+.profile-identity {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  gap: .75rem;
+}
+
+.profile-headline {
+  margin: .2rem 0 0;
+  color: $muted;
+  font-size: .95rem;
+  font-weight: 600;
+}
 
 .profile-interests {
   margin-top: 1.25rem;
@@ -212,9 +227,9 @@ $accent-tint: #e9f2ff;
   border-top: 1px solid $border;
 
   h3 {
-    margin: 0 0 .55rem;
-    font-size: 1rem;
-    font-weight: 700;
+    margin: 0 0 .7rem;
+    font-size: 1.125rem;
+    font-weight: 720;
   }
 }
 
@@ -291,6 +306,11 @@ $accent-tint: #e9f2ff;
   .page-header {
     margin-top: 1.15rem;
     padding: 1.15rem;
+
+    .avatar {
+      width: 3.25rem;
+      height: 3.25rem;
+    }
   }
 
   .project-card { padding: 1rem; }
@@ -309,7 +329,7 @@ $accent-tint: #e9f2ff;
     border: 0;
     background: none;
 
-    .header-name { font-size: 2rem; }
+    .header-name { font-size: 1.625rem; }
   }
 
   .content-section { margin-bottom: .85rem; }
