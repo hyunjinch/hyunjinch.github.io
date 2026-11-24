@@ -4,13 +4,19 @@
 
   <!-- GitHub link -->
   {% if site.resume_social_links.resume_github_url %}
-  <li class="icon-link-item"><a href="{{ site.resume_social_links.resume_github_url }}" class="icon-link" itemprop="sameAs" aria-label="GitHub 프로필" title="GitHub 프로필">{% include icons/icon-github.html %}</a></li>
+  <li class="icon-link-item">
+    <a href="{{ site.resume_social_links.resume_github_url }}" class="icon-link icon-link--labelled" itemprop="sameAs" aria-label="GitHub 프로필">
+      {% include icons/icon-github.html %}
+      <span>GitHub</span>
+    </a>
+  </li>
   {% endif %}
 
   {% if site.resume_contact_email %}
   <li class="icon-link-item">
-    <a href="mailto:{{ site.resume_contact_email }}" class="icon-link" itemprop="email" aria-label="이메일 보내기" title="이메일 보내기">
-      <span class="icon-envelope" aria-hidden="true"></span>
+    <a href="mailto:{{ site.resume_contact_email }}" class="icon-link icon-link--labelled" itemprop="email">
+      {% include icons/icon-email.html %}
+      <span>이메일</span>
     </a>
   </li>
   {% endif %}

@@ -38,11 +38,11 @@
           <h2>{{ site.resume_title }}</h2>
           {% endif %}
           {% if site.resume_interests and site.resume_interests != empty %}
-          <ul class="keyword-list" role="list">
+          <div class="tag-list" role="list">
             {% for interest in site.resume_interests %}
-            <li>{{ interest | escape }}</li>
+            <span class="tag tag--interest" role="listitem">{{ interest | escape }}</span>
             {% endfor %}
-          </ul>
+          </div>
           {% endif %}
           {{ site.resume_header_intro }}
         </div>
@@ -76,25 +76,22 @@
             {% endfor %}
           </ul>
           {% endif %}
-          {% if education.summary %}
-          <p class="resume-item-copy">{{ education.summary }}</p>
-          {% endif %}
         </div>
         {% endfor %}
         {% if site.data.certifications and site.data.certifications != empty %}
         <div class="certifications">
           <h3>Certifications</h3>
-          <ul class="certification-list" role="list">
+          <div class="certification-list" role="list">
             {% for certification in site.data.certifications %}
-            <li>
+            <div class="certification-item" role="listitem">
               <div class="timeline-heading">
                 <strong>{{ certification.name | escape }}</strong>
                 <time class="timeline-date" datetime="{{ certification.acquired }}">{{ certification.acquired | date: "%Y.%m.%d" }}</time>
               </div>
               <p class="resume-item-details">{{ certification.issuer | escape }}</p>
-            </li>
+            </div>
             {% endfor %}
-          </ul>
+          </div>
         </div>
         {% endif %}
       </section>
@@ -137,38 +134,39 @@
 
         {% for project in site.data.projects %}
         {% assign project_website = project.demo_url | default: project.url %}
-        {% assign website_label = '프로젝트 웹사이트' %}
+        {% assign website_label = 'Website' %}
         {% if project.demo_url %}
-          {% assign website_label = '데모 열기' %}
+          {% assign website_label = 'Live Demo' %}
         {% endif %}
-        <div class="resume-item" itemscope itemtype="http://schema.org/CreativeWork">
+        <article class="resume-item project-card" itemscope itemtype="http://schema.org/CreativeWork">
           <div class="project-heading">
             <h3 class="resume-item-title" itemprop="name">{{ project.project | escape }}</h3>
             {% if project.github_url or project_website %}
-            <ul class="icon-links no-print" aria-label="{{ project.project | escape }} 링크" role="list">
+            <div class="project-links no-print" aria-label="{{ project.project | escape }} 링크" role="group">
               {% if project.github_url %}
-              <li>
-                <a href="{{ project.github_url | escape }}" class="icon-link" itemprop="url" aria-label="{{ project.project | escape }} GitHub 저장소" title="GitHub 저장소">
-                  {% include icons/icon-github.html %}
-                </a>
-              </li>
+              <a href="{{ project.github_url | escape }}" class="icon-link icon-link--labelled" itemprop="url" aria-label="{{ project.project | escape }} GitHub">
+                {% include icons/icon-github.html %}
+                <span>GitHub</span>
+              </a>
               {% endif %}
               {% if project_website %}
-              <li>
-                <a href="{{ project_website | escape }}" class="icon-link" itemprop="url" aria-label="{{ project.project | escape }} {{ website_label }}" title="{{ website_label }}">
-                  <span class="icon-external" aria-hidden="true">↗</span>
-                </a>
-              </li>
+              <a href="{{ project_website | escape }}" class="icon-link icon-link--labelled{% if project.demo_url %} icon-link--demo{% endif %}" itemprop="url" aria-label="{{ project.project | escape }} {{ website_label }}">
+                {% include icons/icon-demo.html %}
+                <span>{{ website_label }}</span>
+              </a>
               {% endif %}
-            </ul>
+            </div>
             {% endif %}
           </div>
-          {% if project.status or project.duration %}
-          <p class="resume-item-details project-status">{{ project.status }}{% if project.status and project.duration %} &bull; {% endif %}{{ project.duration }}</p>
+          {% if project.duration %}
+          <p class="resume-item-details">{{ project.duration }}</p>
           {% endif %}
           {% assign problem = project.problem | default: project.description %}
           {% if problem %}
-          <p class="resume-item-copy" itemprop="description"><strong>문제 정의</strong> {{ problem }}</p>
+          <div class="project-overview">
+            <h4>문제 정의</h4>
+            <p itemprop="description">{{ problem }}</p>
+          </div>
           {% endif %}
           {% assign technologies = project.technologies | default: nil %}
           {% if project.role or technologies %}
@@ -176,25 +174,22 @@
             {% if project.role %}
             <dt>Role</dt>
             <dd>
-              <span class="keyword">{{ project.role | escape }}</span>
-              {% if project.role_note %}
-              <span class="role-note">{{ project.role_note | escape }}</span>
-              {% endif %}
+              <span class="tag tag--role">{{ project.role | escape }}</span>
             </dd>
             {% endif %}
             {% if technologies %}
             <dt>Tech Stack</dt>
             <dd>
-              <ul class="keyword-list" role="list">
+              <div class="tag-list" role="list">
                 {% for technology in technologies %}
-                <li>{{ technology | escape }}</li>
+                <span class="tag" role="listitem">{{ technology | escape }}</span>
                 {% endfor %}
-              </ul>
+              </div>
             </dd>
             {% endif %}
           </dl>
           {% endif %}
-        </div>
+        </article>
         {% endfor %}
       </section>
       <!-- end Projects -->
